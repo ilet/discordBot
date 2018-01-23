@@ -7,8 +7,7 @@
 		}
 	},
 	{
-		name: "createCommand",
-		primary: true,
+		name: "createCommand", admin: !0,
 		regEx: "^!create[command|cmd]\\S+(.*)",
 		act: (dmsg, msg, glob) => {
 			function inside(z, x, y) {
@@ -61,7 +60,7 @@
 		}
 	},
 	{
-		name: "deleteCommand",
+		name: "deleteCommand", admin: !0,
 		regEx: "^!delete[command|cmd]\\S+(.*)",
 		act: (dmsg, msg, glob) => {
 			var n, m = msg.match(glob.regEx),
@@ -81,8 +80,7 @@
 		}
 	},
 	{
-		name: "createInfo",
-		primary: true,
+		name: "createInfo", admin: !0,
 		regEx: "^!addinfo[command|cmd]\\S+(.*)",
 		act: (dmsg, msg, glob) => {
 			var n, m = msg.match(glob.regEx),
@@ -90,7 +88,7 @@
 			var JF = Function("return " + buff)();
 			if (m && m.length) {
 				try {
-					var arr = Function("return " + m[1])();
+					var arr = JSON.parse(m[1]);
 					if ("string" == typeof arr[0] && "string" == typeof arr[1] && "string" == typeof arr[2]) {
 						var canDo = 1,
 							cmd = {
