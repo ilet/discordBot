@@ -91,7 +91,7 @@
 		name: "createInfo",
 		admin: true,
 		regEx: "^!addinfo[command|cmd]\\S+(.*)",
-		example: "!addinfocmd [\"!hello\", \"Ohayou Gozaimasu!\", \"COMMAND_NAME\"]\r\n!addinfocommand[\"!hello\", \"Ohayou Gozaimasu!\", \"COMMAND_NAME\"]",
+		example: "!addinfocmd [\"!hello\", \"Ohayou Gozaimasu!\", \"COMMAND_NAME\"]\r\n!addinfocommand [\"!hello\", \"Ohayou Gozaimasu!\", \"COMMAND_NAME\"]",
 		act: (dmsg, msg, glob) => {
 			var n, m = msg.match(glob.regEx),
 				buff = glob.loadJSFile("mods/commands");
