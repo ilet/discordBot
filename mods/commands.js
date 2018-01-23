@@ -8,7 +8,8 @@
 		}
 	},
 	{
-		name: "createCommand", admin: !0,
+		name: "createCommand",
+		admin: true,
 		example: "!createcommand http://x.ru/x.js\r\n!createcmd http://x.ru/x.js",
 		regEx: "^!create[command|cmd]\\S+(.*)",
 		act: (dmsg, msg, glob) => {
@@ -19,7 +20,7 @@
 				mReply = x => dmsg.reply(x);
 			var m = msg.match(glob.regEx);
 			if (m && m.length) {
-				mReply("Sending request to obtain file(timeout=5s)...");
+				mReply("Sending request to obtain file (timeout=5s)...");
 				try {
 					var s = m[1],
 						x = new glob.XMLHttpRequest;
@@ -28,7 +29,7 @@
 					x.onreadystatechange = function() {
 						if (200 === x.status && 4 === x.readyState) {
 							var src = x.responseText;
-							chSend("**URL:** " + s.trim() + "\r\nJS to be added:\r\n```js\r\n" + glob.jsBeauty(src) + "```");
+							//chSend("**URL:** " + s.trim() + "\r\nJS to be added:\r\n```js\r\n" + glob.jsBeauty(src) + "```");
 							try {
 								var canContinue = 1,
 									jso = Function("return " + src)(),
@@ -62,7 +63,8 @@
 		}
 	},
 	{
-		name: "deleteCommand", admin: !0,
+		name: "deleteCommand",
+		admin: true,
 		regEx: "^!delete[command|cmd]\\S+(.*)",
 		example: "!deletecommand command_name\r\n!deletecmd command_name",
 		act: (dmsg, msg, glob) => {
@@ -83,7 +85,8 @@
 		}
 	},
 	{
-		name: "createInfo", admin: !0,
+		name: "createInfo",
+		admin: true,
 		regEx: "^!addinfo[command|cmd]\\S+(.*)",
 		example: "!addinfocmd [\"!hello\", \"Ohayou Gozaimasu!\", \"COMMAND_NAME\"]\r\n!addinfocommand[\"!hello\", \"Ohayou Gozaimasu!\", \"COMMAND_NAME\"]",
 		act: (dmsg, msg, glob) => {
@@ -158,13 +161,15 @@
 		act: dmsg => dmsg.reply("R.I.P Xana's Dreams of Hope.")
 	},
 	{
-		name: "listCommands", admin: !0,
+		name: "listCommands",
+		admin: true,
 		regEx: "^!list commands$",
 		example: "!list commands",
 		act: (dmsg, msg, glob) => {
 			var n, m = msg.match(glob.regEx),
 				buff = glob.loadJSFile("mods/commands");
-			var r = "",JF = Function("return " + buff)();
+			var r = "",
+				JF = Function("return " + buff)();
 			JF.forEach(x => {
 				r += x.example + "\r\n";
 			});
