@@ -1,3 +1,4 @@
+# Note: Project is UNOFFICIAL
 # npm install discord.js --save
 # npm install xmlhttprequest --save
 # npm install js-beautify --save
