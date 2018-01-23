@@ -7,7 +7,6 @@ exports.go = function(g){
 	};
 	g.evalJS = function(f,m){
 		return Function("return "+loadJSFile(f,m))();
-		return eval.apply(g,[loadJSFile(f,m)]);
 	};
 	g.saveFile = function(f,d,m,efn){
 		require('fs').writeFile((!m?__dirname+"/":"")+f,d,(efn?efn:x=>{}));
