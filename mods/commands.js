@@ -46,8 +46,11 @@
 									});
 								if (canContinue) {
 									JF.push(jso);
-									glob.saveFile("mods/commands.js", glob.jsBeauty(glob.getSource(JF)));
-									mReply("The Command is supposedly added.");
+									var data = glob.jsBeauty(glob.getSource(JF));
+									if (data.length > 1) {
+										glob.saveFile("mods/commands.js", data);
+										mReply("The Command is supposedly added.");
+									} else mReply("Something went wrong.");
 								}
 							} catch (e) {
 								mReply("JS Error #2: " + e.message);
@@ -109,8 +112,11 @@
 						});
 						if (canDo) {
 							JF.push(cmd);
-							glob.saveFile("mods/commands.js", glob.jsBeauty(glob.getSource(JF)));
-							dmsg.reply("Command supposedly added.");
+							var data = glob.jsBeauty(glob.getSource(JF));
+							if (data.length > 1) {
+								glob.saveFile("mods/commands.js", data);
+								mReply("The Command is supposedly added.");
+							} else mReply("Something went wrong.");
 						}
 					} else dmsg.reply("Test in JavaScript console before trying to Add Info Command.\r\nBtw, valid example: !addinfocmd [\"!hello\", \"Ohayou Gozaimasu!\", \"COMMAND_NAME\"]");
 				} catch (e) {
@@ -175,5 +181,11 @@
 			});
 			dmsg.channel.send(r);
 		}
+	},
+	{
+		name: "dummyText",
+		regEx: "^!dummy$",
+		example: "!dummy",
+		act: dmsg => dmsg.reply("Kavij's long dummy text is pretty longer than usual sentence(array of words) or it may look like a theory with no particular topic or it does make sense to read the text without getting confused because of this goddamned sentence which is actually long enough.")
 	}
 ]
