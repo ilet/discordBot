@@ -1,6 +1,7 @@
 [{
 		name: "tasteInfo",
 		regEx: "^!taste$",
+		example: "!taste",
 		act: (dmsg, msg) => {
 			var chSend = x => dmsg.channel.send(x);
 			chSend("Tastes delicious!");
@@ -8,6 +9,7 @@
 	},
 	{
 		name: "createCommand", admin: !0,
+		example: "!createcommand http://x.ru/x.js\r\n!createcmd http://x.ru/x.js",
 		regEx: "^!create[command|cmd]\\S+(.*)",
 		act: (dmsg, msg, glob) => {
 			function inside(z, x, y) {
@@ -62,6 +64,7 @@
 	{
 		name: "deleteCommand", admin: !0,
 		regEx: "^!delete[command|cmd]\\S+(.*)",
+		example: "!deletecommand command_name\r\n!deletecmd command_name",
 		act: (dmsg, msg, glob) => {
 			var n, m = msg.match(glob.regEx),
 				buff = glob.loadJSFile("mods/commands");
@@ -82,6 +85,7 @@
 	{
 		name: "createInfo", admin: !0,
 		regEx: "^!addinfo[command|cmd]\\S+(.*)",
+		example: "!addinfocmd [\"!hello\", \"Ohayou Gozaimasu!\", \"COMMAND_NAME\"]\r\n!addinfocommand[\"!hello\", \"Ohayou Gozaimasu!\", \"COMMAND_NAME\"]",
 		act: (dmsg, msg, glob) => {
 			var n, m = msg.match(glob.regEx),
 				buff = glob.loadJSFile("mods/commands");
@@ -115,6 +119,7 @@
 	{
 		name: "clearMessages",
 		regEx: "^!clear messages$",
+		example: "!clear messages",
 		act: dmsg => {
 			if (dmsg.member.hasPermission("MANAGE_MESSAGES"))
 				dmsg.channel.fetchMessages().then(function(L) {
@@ -127,6 +132,7 @@
 	},
 	{
 		name: "deleteMessages",
+		example: "!delete 1 message\r\n!delete 2 messages",
 		regEx: "^!delete (\\d+) [message|messages]+$",
 		act: (dmsg, msg, glob) => {
 			var m = msg.match(glob.regEx);
@@ -148,6 +154,21 @@
 	{
 		name: "xanasDOH",
 		regEx: "^!test$",
+		example: "!test",
 		act: dmsg => dmsg.reply("R.I.P Xana's Dreams of Hope.")
+	},
+	{
+		name: "listCommands", admin: !0,
+		regEx: "^!list commands$",
+		example: "!list commands",
+		act: (dmsg, msg, glob) => {
+			var n, m = msg.match(glob.regEx),
+				buff = glob.loadJSFile("mods/commands");
+			var r = "",JF = Function("return " + buff)();
+			JF.forEach(x => {
+				r += x.example + "\r\n";
+			});
+			dmsg.channel.send(r);
+		}
 	}
 ]
