@@ -2,7 +2,7 @@
 require("./sys").go(global);
 const DClient		 = require("discord.js").Client;
 const DC			 = new DClient;
-const dKey			 = "NDA2NzIyMzgyMTU4NjI2ODE2.DU3HyQ.tM0dv0wKf74h9vp3NfTufR9MUD0";
+const dKey			 = "WRITE YOUR BOT'S KEY XD";
 DC.on("message", msg => {
 	sys.io.dir.eachFile("cmd", x => {
 		try {
