@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Docs</title>
+<style type="text/css">
+span {
+	font-family: 'Consolas';
+	font-size: 16pt;
+	color: #E0E2E4;
+}
+.sc0 {
+}
+.sc2 {
+	color: #C860FF;
+}
+.sc4 {
+	color: #FFCD22;
+}
+.sc5 {
+	font-weight: bold;
+	color: #93C763;
+}
+.sc6 {
+	color: #EC7600;
+}
+.sc10 {
+	color: #E8E2B7;
+}
+.sc11 {
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #000000; "><span class="sc2">// Convert JavaScript source to compiled object
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">exec</span><span class="sc10">(</span><span class="sc5">char</span><span class="sc10">*</span><span class="sc0"> </span><span class="sc11">sourceCode</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc5">boolean</span><span class="sc0"> </span><span class="sc11">useReturn</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">false</span><span class="sc10">)</span><span class="sc0">
+</span><span class="sc2">// EXAMPLE:
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">clsXDD</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">exec</span><span class="sc10">(</span><span class="sc6">"{a:'hello!'}"</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc5">true</span><span class="sc10">);</span><span class="sc0">
+
+</span><span class="sc2">// Convert javascript source FILE to compiled object
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">get</span><span class="sc10">(</span><span class="sc5">char</span><span class="sc10">*</span><span class="sc0"> </span><span class="sc11">javaScriptFileName</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc5">boolean</span><span class="sc0"> </span><span class="sc11">notCurrentDirectory</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">false</span><span class="sc10">)</span><span class="sc0">
+</span><span class="sc2">// EXAMPLE:
+</span><span class="sc11">sys</span><span class="sc10">.</span><span class="sc11">io</span><span class="sc10">.</span><span class="sc11">writeText</span><span class="sc10">(</span><span class="sc6">"aww.js"</span><span class="sc10">);</span><span class="sc0">
+
+</span><span class="sc2">// Data Type checking using sys.type functions
+</span><span class="sc0">
+</span><span class="sc5">boolean</span><span class="sc0"> </span><span class="sc11">sys</span><span class="sc10">.</span><span class="sc11">type</span><span class="sc10">.</span><span class="sc11">tm</span><span class="sc10">(</span><span class="sc5">char</span><span class="sc10">*</span><span class="sc0"> </span><span class="sc11">typeMatrix</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc10">...</span><span class="sc11">argList</span><span class="sc10">)</span><span class="sc0">
+</span><span class="sc2">// EXAMPLE:
+// s = (s)tring, n = (n)umber
+// b = (b)boolean, f = (f)unction...
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">matrix</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc6">"n s"</span><span class="sc10">;</span><span class="sc0"> </span><span class="sc2">// for each argument, split by space
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">a</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc4">4</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">b</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc6">"xD"</span><span class="sc10">;</span><span class="sc0">
+</span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc11">sys</span><span class="sc10">.</span><span class="sc11">type</span><span class="sc10">.</span><span class="sc11">tm</span><span class="sc10">(</span><span class="sc11">matrix</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">a</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">b</span><span class="sc10">))</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc6">"It just works™"</span><span class="sc10">);</span><span class="sc0">
+</span><span class="sc2">// using this method you can check multiple types for each argument:
+// this check if it's one of: string, number or boolean type, if so, returns true
+</span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc11">sys</span><span class="sc10">.</span><span class="sc11">type</span><span class="sc10">.</span><span class="sc11">tm</span><span class="sc10">(</span><span class="sc6">"snb"</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc5">true</span><span class="sc10">))</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc6">"It just works™"</span><span class="sc10">);</span><span class="sc0">
+
+</span><span class="sc2">// Do the same but for array
+</span><span class="sc5">boolean</span><span class="sc0"> </span><span class="sc11">sys</span><span class="sc10">.</span><span class="sc11">type</span><span class="sc10">.</span><span class="sc11">atm</span><span class="sc10">(</span><span class="sc5">char</span><span class="sc10">*</span><span class="sc0"> </span><span class="sc11">typeMatrix</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">Array</span><span class="sc10">&lt;</span><span class="sc11">T</span><span class="sc10">&gt;</span><span class="sc0"> </span><span class="sc11">array</span><span class="sc10">)</span><span class="sc0">
+</span><span class="sc2">// EXAMPLE:
+</span><span class="sc5">if</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc11">sys</span><span class="sc10">.</span><span class="sc11">type</span><span class="sc10">.</span><span class="sc11">atm</span><span class="sc10">(</span><span class="sc6">"snbf"</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">x</span><span class="sc0"> </span><span class="sc10">=&gt;</span><span class="sc0"> </span><span class="sc4">0</span><span class="sc10">))</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc6">"It just works™"</span><span class="sc10">);</span><span class="sc0">
+
+</span><span class="sc2">// I/O stuff below
+</span><span class="sc0">
+</span><span class="sc2">// For-Each files from directory
+</span><span class="sc5">void</span><span class="sc0"> </span><span class="sc11">sys</span><span class="sc10">.</span><span class="sc11">io</span><span class="sc10">.</span><span class="sc11">dir</span><span class="sc10">.</span><span class="sc11">eachFile</span><span class="sc10">(</span><span class="sc5">char</span><span class="sc10">*</span><span class="sc0"> </span><span class="sc11">dirName</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc5">void</span><span class="sc0"> </span><span class="sc11">okFn</span><span class="sc10">(</span><span class="sc11">filename</span><span class="sc10">),</span><span class="sc0"> </span><span class="sc5">void</span><span class="sc0"> </span><span class="sc11">errorFn</span><span class="sc10">(</span><span class="sc11">err</span><span class="sc10">),</span><span class="sc0"> </span><span class="sc5">boolean</span><span class="sc0"> </span><span class="sc11">notCurrentDirectory</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">false</span><span class="sc10">)</span><span class="sc0">
+</span><span class="sc2">// EXAMPLE:
+</span><span class="sc11">sys</span><span class="sc10">.</span><span class="sc11">io</span><span class="sc10">.</span><span class="sc11">dir</span><span class="sc10">.</span><span class="sc11">eachFile</span><span class="sc10">(</span><span class="sc6">"cmd"</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">filename</span><span class="sc0"> </span><span class="sc10">=&gt;</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc0">
+    </span><span class="sc11">console</span><span class="sc10">.</span><span class="sc11">log</span><span class="sc10">(</span><span class="sc11">filename</span><span class="sc10">);</span><span class="sc0">
+</span><span class="sc10">});</span><span class="sc0">
+
+</span><span class="sc2">// Write to Text file
+</span><span class="sc5">void</span><span class="sc0"> </span><span class="sc11">sys</span><span class="sc10">.</span><span class="sc11">io</span><span class="sc10">.</span><span class="sc11">writeText</span><span class="sc10">(</span><span class="sc5">char</span><span class="sc10">*</span><span class="sc0"> </span><span class="sc11">fileName</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc5">char</span><span class="sc10">*</span><span class="sc0"> </span><span class="sc11">textData</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc5">boolean</span><span class="sc0"> </span><span class="sc11">notCurrentDirectory</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">false</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc5">void</span><span class="sc0"> </span><span class="sc11">errorFn</span><span class="sc10">(</span><span class="sc11">err</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">null</span><span class="sc10">)</span><span class="sc0">
+</span><span class="sc2">// EXAMPLE:
+</span><span class="sc11">sys</span><span class="sc10">.</span><span class="sc11">io</span><span class="sc10">.</span><span class="sc11">writeText</span><span class="sc10">(</span><span class="sc6">"aww.js"</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc6">"true"</span><span class="sc10">);</span><span class="sc0">
+
+</span><span class="sc2">// Get Text content of the file
+</span><span class="sc5">char</span><span class="sc10">*</span><span class="sc0"> </span><span class="sc11">sys</span><span class="sc10">.</span><span class="sc11">io</span><span class="sc10">.</span><span class="sc11">readText</span><span class="sc10">(</span><span class="sc5">char</span><span class="sc10">*</span><span class="sc0"> </span><span class="sc11">fileName</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc5">boolean</span><span class="sc0"> </span><span class="sc11">notCurrentDirectory</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc5">false</span><span class="sc10">)</span><span class="sc0">
+</span><span class="sc2">// EXAMPLE:
+</span><span class="sc5">var</span><span class="sc0"> </span><span class="sc11">data</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">sys</span><span class="sc10">.</span><span class="sc11">io</span><span class="sc10">.</span><span class="sc11">readText</span><span class="sc10">(</span><span class="sc6">"server.js"</span><span class="sc10">);</span></div></body>
+</html>
