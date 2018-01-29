@@ -1,5 +1,2 @@
-# Note: It's UNSTABLE Release of the Project, do not Download or anything
+# Note: It's modder's resource
 # npm install discord.js --save
-# npm install xmlhttprequest --save
-# npm install js-beautify --save
-# npm install tosource --save
